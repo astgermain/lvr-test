@@ -2,19 +2,37 @@ import { useState, useEffect, useContext } from "react";
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch";
 import { Props } from "../../node_modules/next/script";
+// import BaseHit from 'algoliasearch'
+
+// interface AlgoliaHits extends BaseHit {
+//   hit: AlgoliaHit;
+// };
+
+// interface AlgoliaHit {
+//   record?: iRecord;
+// };
+
+// interface iRecord {
+//   listing_name?: any;
+//   created_at?: any;
+//   id?: any;
+//   image?: any;
+//   categories?: any;
+//   price?: any;
+// }
 
 const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID || '',
-  process.env.NEXT_PUBLIC_ALGOLIA_WRITE_API_KEY || ''
+  process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID || "",
+  process.env.NEXT_PUBLIC_ALGOLIA_WRITE_API_KEY || ""
 );
 
-function Hit({ hit }) {
+function Hit({ hit }: any) {
   return (
     <article>
-      <img src={hit?.image} alt={hit?.record.listing_name} />
-      <p>{hit?.categories?.[0]}</p>
-      <h1>{hit?.name}</h1>
-      <p>${hit?.price}</p>
+      <img src={hit?.record?.image} alt={hit?.record?.listing_name} />
+      <p>{hit?.record?.categories?.[0]}</p>
+      <h1>{hit?.record?.listing_name}</h1>
+      <p>${hit?.record?.price}</p>
     </article>
   );
 }
