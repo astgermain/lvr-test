@@ -7,7 +7,8 @@ const HomePage = () => {
   const [images, setImages] = useState<string[]>([]);
   function Hit({ hit }: any) {
     const priceInUSD = convertPriceToUSD(hit?.record?.price || 0);
-    const defaultImageUrl = `https://picsum.photos/250/250?random=${getRandomNumber()}`;
+    const defaultImageUrl = hit.record.image || `https://picsum.photos/250/250?random=${getRandomNumber()}`;
+    console.log(hit)
     return (
       <article>
         <Image
