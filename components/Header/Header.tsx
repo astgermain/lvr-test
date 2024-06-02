@@ -52,7 +52,7 @@ const Header = () => {
             }}
           >
             <Link href="/">
-              <Image src={logo} width={60} height={60} />
+              <Image src={logo} width={60} height={60} alt={"LVR Test Logo"} />
             </Link>
             <div style={{ width: "400px" }}>
               <Search placeholder="Search" autoFocus />

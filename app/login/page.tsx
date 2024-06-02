@@ -160,7 +160,7 @@ export default function Login({
           Welcome back! Please login to continue!
         </div>
         <div>
-          <Image src={loginImage} width={"50rem"} height={"50rem"} />
+          <Image src={loginImage} alt={"decorative image"} />
         </div>
       </div>
     </div>

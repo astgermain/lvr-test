@@ -16,10 +16,8 @@ const searchClient = algoliasearch(
 
 export default function Layout({
   children,
-  user,
 }: Readonly<{
   children: React.ReactNode;
-  user?: any;
 }>) {
   return (
     <html lang="en">
