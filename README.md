@@ -2,8 +2,15 @@
 
 ## Needs .env file with Algolia Application Id and Algolia Write API Key if you wanted to run locally
 
+## Did
+- Algolia
+- Supabase
+- Vercel
+- Unit tests with Jest
+- Auth with Supabase
+
 ## Todo
 - Needs design
 - Algolia search improvements/training
 - Details page
-- Sign in/SSO
+- Sign in w/SSO
