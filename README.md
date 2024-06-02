@@ -8,6 +8,7 @@
 - Vercel
 - Unit tests with Jest
 - Auth with Supabase
+- Tested preview/dev environment deployments
 
 ## Todo
 - Needs design
