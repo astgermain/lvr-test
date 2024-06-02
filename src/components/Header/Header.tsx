@@ -30,8 +30,6 @@ const Header = () => {
           justifyContent: "space-evenly",
           background: "#c2e5fa",
         }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <div>Logo</div>
         <div style={{ width: "400px" }}>
