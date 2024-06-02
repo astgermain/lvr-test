@@ -15,3 +15,4 @@
 - Algolia search improvements/training
 - Details page
 - Sign in w/SSO
+- Add filtering/sorting
