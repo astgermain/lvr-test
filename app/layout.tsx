@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
+import Banner from "../components/Banner";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch";
 import algoliasearch from "algoliasearch/lite";
 import "./globals.css";
@@ -25,14 +26,18 @@ export default function Layout({
       <body className="bg-background text-foreground">
         <InstantSearch searchClient={searchClient} indexName="lvr-test-index">
           <Header />
-          <main
-            style={{
-              padding: "2rem 0 ",
-              margin: "1rem auto",
-              maxWidth: "1200px",
-            }}
-          >
-            {children}
+          <main>
+            <Banner />
+            <section
+              style={{
+                padding: "2rem 0 ",
+                margin: "1rem auto",
+                maxWidth: "1200px",
+                display: "flex",
+              }}
+            >
+              {children}
+            </section>
           </main>
           <Footer />
         </InstantSearch>

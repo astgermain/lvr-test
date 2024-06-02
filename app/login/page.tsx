@@ -58,7 +58,8 @@ export default function Login({
       className="flex-1 flex flex-row w-full justify-space-between"
       style={{
         margin: "auto",
-        width: "56rem",
+        width: "100%",
+        maxWidth: "1200px",
         boxShadow:
           "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px",
         borderRadius: "35px",
@@ -66,7 +67,8 @@ export default function Login({
     >
       <div
         style={{
-          width: "28rem",
+          width: "50%",
+          maxWidth: "600px",
           padding: "3rem",
           background: "#fff",
           borderRadius: "35px 0 0 35px",
@@ -136,21 +138,22 @@ export default function Login({
       </div>
       <div
         style={{
-          width: "28rem",
+          width: "50%",
+          maxWidth: "600px",
           padding: "3rem",
           background:
             "linear-gradient(109.6deg, rgb(6, 183, 249) 11.2%, #0061e0 91.1%)",
           borderRadius: "0 35px 35px 0",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "left",
         }}
       >
         <div
           style={{
             height: "40px",
             color: "white",
-            fontSize: "1.5rem",
+            fontSize: "1.4rem",
             fontWeight: "bold",
           }}
         >
