@@ -1,31 +1,31 @@
 {
-  "name": "nextjs",
+  "name": "LVR Test App",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "jest --coverage"
+    "start": "next start"
   },
   "dependencies": {
-    "@babel/core": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
-    "@babel/preset-react": "^7.24.6",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.19",
+    "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.43.4",
     "algoliasearch": "^4.23.3",
-    "babel-jest": "^29.7.0",
+    "autoprefixer": "10.4.17",
+    "geist": "^1.2.1",
     "jest-config": "^29.7.0",
     "next": "14.2.3",
+    "postcss": "8.4.33",
     "prettier": "^3.3.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-instantsearch": "^7.10.0",
-    "ts-node": "^10.9.2"
+    "tailwindcss": "3.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "5.3.3"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.24.6",
