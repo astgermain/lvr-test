@@ -5,12 +5,12 @@ const Footer = () => {
     <Box
       sx={{
         width: "100%",
-        height: "auto",
+        height: "100px",
         backgroundColor: "primary.main",
         paddingTop: "1rem",
         paddingBottom: "1rem",
         bottom: "0",
-        position: "absolute",
+        position: "relative",
       }}
     >
       <Container maxWidth="lg">

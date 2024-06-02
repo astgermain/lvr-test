@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
 :root {
   --foreground-rgb: #fff;
@@ -9,6 +10,10 @@
 }
 
 body {
+  font-family: "Reddit Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
