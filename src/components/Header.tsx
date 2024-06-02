@@ -1,9 +1,9 @@
-import Auth from "./Auth";
+import Search from "./Search/Search";
 const Header = () => {
   return (
     <header>
       <nav>
-        <Auth />
+        <Search />
         <ol>
           <li>
             <a href="#">Link 1</a>

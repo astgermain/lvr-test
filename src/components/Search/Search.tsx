@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch";
-import { Props } from "../../node_modules/next/script";
+
 // import BaseHit from 'algoliasearch'
 
 // interface AlgoliaHits extends BaseHit {
@@ -37,7 +37,7 @@ function Hit({ hit }: any) {
   );
 }
 
-const Auth = ({ children }: Props) => {
+const Search = ({ children }: any) => {
   return (
     <InstantSearch searchClient={searchClient} indexName="lvr-test-index">
       <SearchBox />
@@ -46,4 +46,4 @@ const Auth = ({ children }: Props) => {
   );
 };
 
-export default Auth;
+export default Search;
