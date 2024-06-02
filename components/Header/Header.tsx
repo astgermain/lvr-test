@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Box from "@mui/material/Box";
@@ -9,13 +9,39 @@ import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import Search from "../Search/Search";
 import logo from "/public/logo.png";
+import { createClient } from "../../utils/supabase/client";
+import SignOutButton from "../Auth/signout-button.tsx";
+import { usePathname, useRouter } from "next/navigation";
 
-const Header = () => {
+const Header = ({ user }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [userVal, setUser] = useState(user);
+  const [signout, setSignout] = useState(false);
+  const path = usePathname();
+  const router = useRouter();
 
-  useEffect(() => {}, []);
+  //I know this is duplicate but for sake of time
+  const supabase = createClient();
+
+  const getUser = async () => {
+    const userData = await supabase.auth.getUser();
+    setUser(userData?.data?.user);
+    if (!userData?.data?.user && path === "/protected") {
+      router.push("/login");
+    }
+    return userData;
+  };
+
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    getUser();
+  };
+
+  useEffect(() => {
+    getUser();
+  }, [signout, path]);
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -58,7 +84,7 @@ const Header = () => {
               <Search placeholder="Search" autoFocus />
             </div>
           </div>
-          {!loggedIn ? (
+          {!userVal ? (
             <Link href="/login">Login</Link>
           ) : (
             <Tooltip title="Account settings">
@@ -82,10 +108,10 @@ const Header = () => {
           anchorEl={anchorEl}
         >
           <MenuItem>
-            <a href="#">Link 1</a>
+            <span>{userVal?.email}</span>
           </MenuItem>
-          <MenuItem>
-            <div>Link 2</div>
+          <MenuItem onClick={signOut}>
+            <span>Sign Out</span>
           </MenuItem>
         </Menu>
       </header>

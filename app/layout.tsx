@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import Header from "../components/Header/Header";
@@ -8,6 +8,8 @@ import Banner from "../components/Banner";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch";
 import algoliasearch from "algoliasearch/lite";
 import "./globals.css";
+import { createClient } from "../utils/supabase/client";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +23,25 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [user, setUser] = useState(null);
+  const supabase = createClient();
+  const router = usePathname();
+
+  const getUser = async () => {
+    const userData = await supabase.auth.getUser();
+    setUser(userData?.data?.user);
+    return userData;
+  };
+
+  useEffect(() => {
+    getUser();
+  }, [router]);
+
   return (
     <html lang="en">
       <body className="bg-background text-foreground">
         <InstantSearch searchClient={searchClient} indexName="lvr-test-index">
-          <Header />
+          <Header user={user} />
           <main>
             <Banner />
             <section
@@ -34,6 +50,7 @@ export default function Layout({
                 margin: "1rem auto",
                 maxWidth: "1200px",
                 display: "flex",
+                justifyContent: "center",
               }}
             >
               {children}

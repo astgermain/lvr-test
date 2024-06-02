@@ -1,5 +1,6 @@
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { convertPriceToUSD, getRandomNumber } from "../utils/utils";
 import Image from "next/image";
 import { styled } from "@mui/material/styles";
@@ -22,6 +23,7 @@ const HomePage = () => {
 
   function Hit({ hit }: any) {
     const priceInUSD = convertPriceToUSD(hit?.record?.price || 0);
+    const record = JSON.stringify(hit?.record);
     const defaultImageUrl =
       hit.record.image ||
       `https://picsum.photos/250/250?random=${getRandomNumber()}`;
@@ -30,14 +32,29 @@ const HomePage = () => {
         <Card sx={{ maxWidth: 345 }}>
           <CardHeader
             avatar={
-              <Avatar sx={{ bgcolor: "#0061e0" }} aria-label="recipe">
-                R
+              <Avatar
+                sx={{ bgcolor: "#0061e0", textTransform: "uppercase" }}
+                aria-label="recipe"
+              >
+                {hit?.record?.agent || "M"}
               </Avatar>
             }
             action={
-              <IconButton aria-label="share" sx={{ color: "#0061e0" }}>
-                <InfoIcon />
-              </IconButton>
+              <Link
+                href={{
+                  pathname: `homedetails/${hit?.record?.id}`,
+                  query: {
+                    record: record,
+                  },
+                }}
+              >
+                <IconButton
+                  aria-label="share"
+                  sx={{ color: "#0061e0", padding: "12px" }}
+                >
+                  <InfoIcon />
+                </IconButton>
+              </Link>
             }
             title={hit?.record?.listing_name || "address not available"}
             subheader="City, State, Zip"

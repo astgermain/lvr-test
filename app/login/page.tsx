@@ -3,7 +3,7 @@ import Image from "next/image";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { SubmitButton } from "./submit-button";
+import { SubmitButton } from "../../components/Auth/submit-button";
 import loginImage from "/public/loginImage.png";
 
 export default function Login({
