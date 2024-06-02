@@ -1,10 +1,10 @@
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
-import Search, {Hit} from "./Search";
+import Search, { Hit } from "./Search";
 import * as algoliasearch from "algoliasearch";
 jest.mock("react-instantsearch", () => ({
   InstantSearch: ({ children }) => <div>{children}</div>,
   SearchBox: () => "Search Box",
-  Hits: () => 'Hits',
+  Hits: () => "Hits",
 }));
 
 jest.mock("algoliasearch");
