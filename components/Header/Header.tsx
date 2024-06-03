@@ -10,10 +10,9 @@ import IconButton from "@mui/material/IconButton";
 import Search from "../Search/Search";
 import logo from "/public/logo.png";
 import { createClient } from "../../utils/supabase/client";
-import SignOutButton from "../Auth/signout-button.tsx";
 import { usePathname, useRouter } from "next/navigation";
 
-const Header = ({ user }) => {
+const Header = ({ user }: any) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);

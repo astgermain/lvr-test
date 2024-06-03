@@ -8,8 +8,8 @@ import { createClient } from "../../utils/supabase/client";
 export function SignOutButton() {
   const router = useRouter();
   const supabase = createClient();
-  const [user, setUser] = useState(null);
-  const [signout, setSignout] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const [signout, setSignout] = useState<boolean>(false);
   const getUser = async () => {
     const userData = await supabase.auth.getUser();
     setUser(userData?.data?.user);

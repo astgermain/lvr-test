@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { getRandomNumber } from "../../../utils/utils";
 
-export default function HomeDetailsPage({ searchParams }) {
+export default function HomeDetailsPage({ searchParams }: any) {
   const record = JSON.parse(searchParams?.record);
   const defaultImageUrl =
     record.image || `https://picsum.photos/250/250?random=${getRandomNumber()}`;

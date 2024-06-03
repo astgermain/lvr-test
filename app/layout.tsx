@@ -23,7 +23,7 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const supabase = createClient();
   const router = usePathname();
 
