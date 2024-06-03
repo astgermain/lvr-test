@@ -8,11 +8,10 @@
 - Vercel
 - Unit tests with Jest
 - Auth with Supabase
+- Details page
 - Tested preview/dev environment deployments
 
 ## Todo
-- Needs design
+- Needs design(kinda)
 - Algolia search improvements/training
-- Details page
-- Sign in w/SSO
 - Add filtering/sorting
